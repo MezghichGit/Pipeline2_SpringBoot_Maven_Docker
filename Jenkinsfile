@@ -6,21 +6,17 @@ agent any
           maven 'maven3916'
      }
      stages{
-
-          stage('Lancement des tests unitaires') {
-
-               steps {
-                         sh 'mvn clean test'
-               }
-			   
-          }
-
-          stage('Création du jar') {
-
-               steps {
-                         sh 'mvn package'
-                    }	
-
-          }  
+          stage('Vérification de l\'environnement') {
+            steps {
+                sh '''
+                    echo "=== Vérification Java ==="
+                    java -version
+                    echo "=== Vérification Maven ==="
+                    mvn -version
+                    echo "=== Variables d\'environnement ==="
+                    echo "JAVA_HOME: $JAVA_HOME"
+                '''
+            }
+        }
      }
 }

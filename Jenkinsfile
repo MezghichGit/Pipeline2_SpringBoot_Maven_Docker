@@ -58,7 +58,7 @@ pipeline {
            stage('Creation de container docker') {
             steps {
                 echo 'Creation de container docker...'
-                sh 'docker run -d -p 9000:8484 --name ibcegos_cont ibcegosamine'
+                sh 'docker run -d -p 8986:8484 --name ibcegos_cont ibcegosamine'
             }
         }
 

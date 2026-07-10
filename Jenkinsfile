@@ -51,14 +51,14 @@ pipeline {
          stage('Construction de image docker') {
             steps {
                 echo 'Construction de image docker...'
-                sh 'docker build -t ibcegosamine .'
+                sh 'docker build -t ibcegosamine2 .'
             }
         }
         
            stage('Creation de container docker') {
             steps {
                 echo 'Creation de container docker...'
-                sh 'docker run -d -p 8986:8484 --name ibcegos_cont ibcegosamine'
+                sh 'docker run -d -p 8986:8484 --name ibcegos_cont2 ibcegosamine2'
             }
         }
 

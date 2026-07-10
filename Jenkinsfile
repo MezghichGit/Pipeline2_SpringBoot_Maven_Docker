@@ -2,11 +2,21 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK17'          // Ajout du JDK 17
-        maven 'maven3916'    // Votre Maven
+        maven 'maven3916'
     }
 
     stages {
+        stage('Vérification de l\'environnement') {
+            steps {
+                sh '''
+                    echo "=== Java Version ==="
+                    java -version
+                    echo "=== Maven Version ==="
+                    mvn -version
+                '''
+            }
+        }
+
         stage('Lancement des tests unitaires') {
             steps {
                 sh 'mvn clean test'

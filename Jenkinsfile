@@ -7,12 +7,6 @@ pipeline {
         maven 'maven3916'
     }
 
-    environment {
-        JAVA_HOME = tool 'JDK21'
-        MAVEN_HOME = tool 'maven3916'
-        PATH = "${JAVA_HOME}/bin:${MAVEN_HOME}/bin:${env.PATH}"
-    }
-
     stages {
 
         stage('Checkout') {

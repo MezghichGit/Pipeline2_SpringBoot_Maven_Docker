@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-   tools {
-
-        maven 'maven3916'    // Utilise Maven 3.9.16
-    }
-
     stages {
         stage('Vérification de l\'environnement') {
             steps {

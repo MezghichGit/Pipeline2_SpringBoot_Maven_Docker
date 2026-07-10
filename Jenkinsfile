@@ -47,6 +47,20 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
+        
+         stage('Construction de image docker') {
+            steps {
+                echo 'Construction de image docker...'
+                sh 'docker build -t ibcegosamine .'
+            }
+        }
+        
+           stage('Creation de container docker') {
+            steps {
+                echo 'Creation de container docker...'
+                sh 'docker run -d -p 9000:8484 --name ibcegos_cont ibcegosamine'
+            }
+        }
 
     }
 

@@ -4,12 +4,12 @@ pipeline {
 
     tools {
         jdk 'JDK21'
-        maven 'Maven'
+        maven 'maven3916'
     }
 
     environment {
         JAVA_HOME = tool 'JDK21'
-        MAVEN_HOME = tool 'Maven'
+        MAVEN_HOME = tool 'maven3916'
         PATH = "${JAVA_HOME}/bin:${MAVEN_HOME}/bin:${env.PATH}"
     }
 

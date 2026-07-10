@@ -1,0 +1,3 @@
+docker build -t ibcegos .
+
+docker run -d -p 9000:8484 --name ibcegos_cont ibcegos

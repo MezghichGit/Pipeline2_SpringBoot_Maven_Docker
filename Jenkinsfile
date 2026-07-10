@@ -48,8 +48,8 @@ pipeline {
                 script {
                     sh '''
                         echo "=== Suppression du conteneur ==="
-                        docker stop ibcegos_cont || echo "Conteneur non trouvé (stop)"
-                        docker rm ibcegos_cont || echo "Conteneur non trouvé (rm)"
+                        docker stop ibcegos_cont10 || echo "Conteneur non trouvé (stop)"
+                        docker rm ibcegos_cont10 || echo "Conteneur non trouvé (rm)"
                     '''
                 }
             }
@@ -61,7 +61,7 @@ pipeline {
                 script {
                     sh '''
                         echo "=== Suppression de l'image ==="
-                        docker rmi ibcegosamine || echo "Image non trouvée"
+                        docker rmi ibcegosamine10 || echo "Image non trouvée"
                         docker image prune -f || echo "Nettoyage images terminé"
                     '''
                 }
@@ -71,14 +71,14 @@ pipeline {
         stage('Construction de l\'image Docker') {
             steps {
                 echo 'Construction de l\'image Docker...'
-                sh 'docker build -t ibcegosamine .'
+                sh 'docker build -t ibcegosamine10 .'
             }
         }
 
         stage('Création du conteneur Docker') {
             steps {
                 echo 'Création du conteneur Docker...'
-                sh 'docker run -d -p 8986:8484 --name ibcegos_cont ibcegosamine'
+                sh 'docker run -d -p 8777:8484 --name ibcegos_cont10 ibcegosamine10'
             }
         }
     }
